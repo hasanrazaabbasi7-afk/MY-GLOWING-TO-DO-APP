@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+:root{
+     --bg-color: #0f2027;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --blur: blur(15px);
+    --primary: #00f2fe;
+    --danger: #ff4d4d;
+    --success: #00e676;
+    --text-light: #ffffff;
+    --text-muted: rgba(255,255,255,0.7);
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(#6ccff6,#474765,#f2ee72);
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.todo-app{
+  box-shadow:rgb(204, 219, 232) 3px 3px 6px 0px inset, 
+  rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  position: relative;
+  z-index: 10;
+}
+
+
+.todo-app{
+    width: 420px;
+    max-height: 525px;
+    overflow-y: scroll;
+    scrollbar-width: none;        /* Firefox */
+   -ms-overflow-style: none; 
+    background: var(--card-bg);
+    border-radius: 20px 30px;
+    padding: 30px;
+    animation: fadein 0.6s ease;
+}
+
+.todo-app::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+.app-header{
+    text-align: center;
+   margin: 20px 0 30px;
+     
+}
+.app-header h1{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #f2ee72;
+    font-size: 30px;
+    padding: 10px;
+}
+.app-header p{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #89d2db;
+    font-size: medium;
+    padding: 10px;
+}
+.task-input-box{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+
+    animation: inputGlow 3s infinite alternate;
+}
+
+@keyframes inputGlow {
+    0%{
+        box-shadow: 0 0 8px rgba(255, 241, 118, 0.3);
+    }
+    100%{
+        box-shadow:
+            0 0 20px rgba(255, 235, 59, 0.6),
+            0 0 40px rgba(255, 193, 7, 0.8);
+    }
+}
+
+.task-input-box input{
+    flex: 1;
+    padding: 20px 20px;
+    border-radius: 12px 15px 12px 15px; 
+    border: none;
+    outline: none;
+    background: linear-gradient(#F0EDEE,#89d2db);
+    color: black;
+    font-size: 15px;
+}
+
+.task-input-box input::placeholder {
+    color: black;
+;
+}
+#addTaskBtn{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    background: linear-gradient(#faffc7,#393027);
+    border: none;
+    border-radius: 10px;
+    width: 50px;
+    cursor: pointer;
+    color: #434d59;
+    font-size: 18px;
+
+    box-shadow: 0 0 15px #ffeb3b;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0%{
+        box-shadow: 0 0 5px #fff176;
+    }
+    100%{
+        box-shadow:
+            0 0 15px #ffee58,
+            0 0 25px #e9bc37,
+            0 0 40px #f3b421;
+    }
+}
+
+#addTaskBtn:hover {
+    background: linear-gradient(#F0EDEE,#89d2db);
+    transform: scale(1.2);
+}
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.task-item{
+    background: linear-gradient(#F0EDEE,#89d2db) ;
+    padding: 12px 15px  ;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.4s ease;
+}
+
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.task-text{
+    color: black;
+    font-size: 15px;
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-word;
+}
+.task-actions{
+    display: flex;
+    gap: 8px ;
+}
+.task-actions button{
+    border: none;
+    background: transparent ;
+    cursor: pointer;
+    font-size: 15px;
+    color: #0f416b;
+    transition: 0.3s;
+}
+.task-actions .edit-btn:hover {
+    color: var(--primary);
+    transform: scale(1.2);
+}
+
+.task-actions .save-btn:hover {
+    color: var(--success);
+    transform: scale(1.2);
+}
+
+.task-actions .delete-btn:hover {
+    color: var(--danger);
+    transform: scale(1.2);
+}
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+@media screen and (max-width: 480px) {
+    body{
+        padding: 10px;
+    }
+
+    .todo-app {
+        width: 100%;
+        max-height: 90vh;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .app-header h1{
+        font-size: 24px;
+    }
+
+    .task-input-box input{
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    #addTaskBtn{
+        width: 45px;
+        font-size: 16px;
+    }
+}

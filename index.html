@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To Do App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+     <canvas id="particles"></canvas>
+    <div class="todo-app">
+
+        <!-- HEADER -->
+        <header class="app-header">
+            <h1>MY TO DO APP</h1>
+            <p>TO DO LIST FOR MY PLANING TASKS</p>
+        </header>
+
+        <!-- INPUT SECTION -->
+        <div class="task-input-box">
+            <input 
+                type="text" 
+                id="taskInput" 
+                class="task-input" 
+                placeholder="Add a new task..."
+            >
+            
+            
+        
+            <button type="button" class="add-task-btn" id="addTaskBtn">
+                <i class="ri-add-box-fill"></i>A
+            </button>
+        </div>
+
+        <!-- TASK LIST -->
+        <ul class="task-list" id="taskList">
+            <!-- Tasks JavaScript se add honge -->
+        </ul>
+
+    </div>
+
+    <!-- JavaScript -->
+<script src="./particles.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
